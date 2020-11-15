@@ -6,7 +6,7 @@ call plug#begin("~/.vim/plugged")
   " Nerdtree
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'thoughtbot/vim-rspec'
+  Plug 'vim-test/vim-test'
 
   " UI
   Plug 'ryanoasis/vim-devicons'
@@ -88,9 +88,11 @@ set splitbelow
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
-  split term://bash
+  split term://zsh
   resize 10
 endfunction
+
+tnoremap <C-g> <C-\><C-n>
 
 nnoremap <Leader>v :call OpenTerminal()<CR>
 
@@ -152,7 +154,7 @@ nmap <M-9> <Plug>AirlineSelectTab9
  
 " " Editor ney keybindings
 nmap ç :wall! <CR>
-nmap <leader>k :bd <CR>
+nmap <leader>k :bd! <CR>
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 imap <C-BS> <C-W>
@@ -189,17 +191,23 @@ nmap <leader>rk :Etask
 nmap <leader>rv :Eview 
 
 " RSpec.vim mappings
-map <Leader>tv :call RunCurrentSpecFile()<CR>
+map <Leader>tv :call OpenTerminal() :T bundle exec rspec % <CR>
 map <Leader>ts :call RunNearestSpec()<CR>
 map <Leader>tr :call RunLastSpec()<CR>
 map <Leader>ta :call RunAllSpecs()<CR>
 
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+nmap <silent> <Leader>ts :TestNearest<CR>
+nmap <silent> <Leader>tv :TestFile<CR>
+nmap <silent> <Leader>ta :TestSuite<CR>
+nmap <silent> <Leader>tr :TestLast<CR>
+nmap <silent> <Leader>tR :TestVisit<CR>
 
 source ~/.config/nvim/coc.vim
 
 " Git
 nmap <Leader>gg :G <CR>
-nmap <Leader>gf :diffget //2 <CR>
-nmap <Leader>gj :diffget //3 <CR>
+nmap <Leader>gm :diffget //2 <CR>
+nmap <Leader>go :diffget //3 <CR>
 nnoremap <Leader>gc :GCheckout <CR>
+
+let test#strategy = "neovim"
