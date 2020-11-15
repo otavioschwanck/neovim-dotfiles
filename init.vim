@@ -47,7 +47,7 @@ call plug#begin("~/.vim/plugged")
   " Misc
   Plug 'xianzhon/vim-code-runner'
 
-  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-tabnine', 'coc-solargraph', 'coc-yank']
+  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-tabnine', 'coc-solargraph', 'coc-yank', 'coc-snippets']
 call plug#end()
 
 " Config Section
@@ -158,6 +158,9 @@ nmap <M-9> <Plug>AirlineSelectTab9
 " " Editor ney keybindings
 nmap ç :wall! <CR>
 nmap <leader>k :bd! <CR>
+nmap <leader>, :Buffers <CR>
+nmap <C-,> :bp <CR>
+nmap <C-;> :bn <CR>
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 imap <C-BS> <C-W>
