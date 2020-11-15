@@ -1,6 +1,7 @@
 call plug#begin("~/.vim/plugged")
   " Themes
   Plug 'dracula/vim'
+  Plug 'gruvbox-community/gruvbox'
 
   " Nerdtree
   Plug 'scrooloose/nerdtree'
@@ -25,6 +26,9 @@ call plug#begin("~/.vim/plugged")
   Plug 'tommcdo/vim-lion'
   Plug 'justinmk/vim-sneak'
 
+  " Git
+  Plug 'tpope/vim-fugitive'
+
   " Ruby on Rails
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-dispatch'
@@ -34,11 +38,11 @@ call plug#begin("~/.vim/plugged")
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'stsewd/fzf-checkout.vim'
   Plug 'pelodelfuego/vim-swoop'
 
   " Misc
   Plug 'xianzhon/vim-code-runner'
-
 
   let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-tabnine', 'coc-solargraph']
 call plug#end()
@@ -60,7 +64,8 @@ if (has("termguicolors"))
   set termguicolors
 endif
 syntax enable
-colorscheme dracula
+colorscheme gruvbox
+set background=dark
 
 Plug 'dracula/vim'
 
@@ -108,12 +113,15 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Change tabs with alt
 " Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='onedark'
+let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnametruncate = 16
@@ -189,3 +197,9 @@ map <Leader>ta :call RunAllSpecs()<CR>
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 source ~/.config/nvim/coc.vim
+
+" Git
+nmap <Leader>gg :G <CR>
+nmap <Leader>gf :diffget //2 <CR>
+nmap <Leader>gj :diffget //3 <CR>
+nnoremap <Leader>gc :GCheckout <CR>
