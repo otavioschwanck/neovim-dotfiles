@@ -5,7 +5,6 @@ call plug#begin("~/.vim/plugged")
   Plug 'dracula/vim'
   Plug 'gruvbox-community/gruvbox'
 
-
   " Nerdtree
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -64,7 +63,7 @@ call plug#end()
 let mapleader = " "
 
 " Some nice configs
-set relativenumber
+set relativenumber!
 set ic
 
 " Opening Private Configs
