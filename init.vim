@@ -5,6 +5,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'dracula/vim'
   Plug 'gruvbox-community/gruvbox'
 
+
   " Nerdtree
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -52,7 +53,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'sheerun/vim-polyglot'
   Plug 'honza/vim-snippets'
   Plug 'mbbill/undotree'
-
+  Plug 'junegunn/vim-peekaboo'
 
   let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-tabnine', 'coc-solargraph', 'coc-yank', 'coc-snippets']
 call plug#end()
@@ -61,7 +62,10 @@ call plug#end()
 
 " SPC as leader = <3
 let mapleader = " "
+
+" Some nice configs
 set relativenumber
+set ic
 
 " Opening Private Configs
 nnoremap <silent> <leader>fp :e ~/.config/nvim/init.vim <cr>
@@ -155,7 +159,14 @@ nmap <leader>k :bd! <CR>
 nmap <leader>, :Buffers <CR>
 nmap <C-,> :bp <CR>
 nmap <C-;> :bn <CR>
+nmap <expr> <TAB>
+      \ !pumvisible() ? "\/" : "\<TAB>"
+
+nmap <expr> <C-TAB>
+      \ !pumvisible() ? "\?" : "\<S-TAB>"
+
 nmap - $
+vmap - $
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 imap <C-BS> <C-W>
@@ -206,6 +217,8 @@ nmap <silent> <Leader>tR :TestVisit<CR>
 " Sneak mode
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 source ~/.config/nvim/coc.vim
 
@@ -255,3 +268,6 @@ nnoremap <esc>^[ <esc>^[
 " Undotree
 
 nmap <Leader>u :UndotreeToggle <CR>
+
+" Peekaboo
+let g:peekaboo_window = 'vert bot 60new'
