@@ -232,3 +232,5 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Autoreload files!
 set autoread
 au CursorHold * checktime
+
+let g:startify_change_to_vcs_root = 1
