@@ -70,8 +70,6 @@ syntax enable
 colorscheme gruvbox
 set background=dark
 
-Plug 'dracula/vim'
-
 " Nerdtree
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
@@ -214,7 +212,7 @@ source ~/.config/nvim/coc.vim
 nmap <Leader>gg :G <CR>
 nmap <Leader>gm :diffget //2 <CR>
 nmap <Leader>go :diffget //3 <CR>
-nnoremap <Leader>gc :GCheckout <CR>
+nnoremap <Leader>gc :GBranches <CR>
 
 let test#strategy = "neovim"
 
