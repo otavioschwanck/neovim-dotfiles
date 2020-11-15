@@ -221,3 +221,6 @@ let test#strategy = "neovim"
 " Selecting your last pasted item
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
+" Autoreload files!
+set autoread
+au CursorHold * checktime
