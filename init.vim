@@ -11,6 +11,7 @@ call plug#begin("~/.vim/plugged")
   " UI
   Plug 'ryanoasis/vim-devicons'
   Plug 'airblade/vim-gitgutter'
+  Plug 'mhinz/vim-startify'
   
   " Airline for the tabs
   Plug 'vim-airline/vim-airline'
@@ -20,17 +21,19 @@ call plug#begin("~/.vim/plugged")
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'tpope/vim-surround'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-commentary'
   Plug 'easymotion/vim-easymotion'
   Plug 'tommcdo/vim-lion'
+  Plug 'terryma/vim-multiple-cursors'
   Plug 'justinmk/vim-sneak'
+  Plug 'matze/vim-move'
 
   " Git
   Plug 'tpope/vim-fugitive'
 
   " Ruby on Rails
   Plug 'tpope/vim-rails'
+  Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-bundler'
 
@@ -44,14 +47,14 @@ call plug#begin("~/.vim/plugged")
   " Misc
   Plug 'xianzhon/vim-code-runner'
 
-  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-tabnine', 'coc-solargraph']
+  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-tabnine', 'coc-solargraph', 'coc-yank']
 call plug#end()
 
 " Config Section
 
 " SPC as leader = <3
 let mapleader = " "
-set nu
+set relativenumber
 
 " Opening Private Configs
 nnoremap <silent> <leader>fp :e ~/.config/nvim/init.vim <cr>
@@ -98,14 +101,14 @@ nnoremap <Leader>v :call OpenTerminal()<CR>
 
 " Move between split panels
 " use alt+hjkl to move between split/vsplit panels
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+tnoremap <C-A-h> <C-\><C-n><C-w>h
+tnoremap <C-A-j> <C-\><C-n><C-w>j
+tnoremap <C-A-k> <C-\><C-n><C-w>k
+tnoremap <C-A-l> <C-\><C-n><C-w>l
+nnoremap <C-A-h> <C-w>h
+nnoremap <C-A-j> <C-w>j
+nnoremap <C-A-k> <C-w>k
+nnoremap <C-A-l> <C-w>l
 
 nnoremap <Leader><space> :FZF<CR>
 
@@ -211,3 +214,7 @@ nmap <Leader>go :diffget //3 <CR>
 nnoremap <Leader>gc :GCheckout <CR>
 
 let test#strategy = "neovim"
+
+" Selecting your last pasted item
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
