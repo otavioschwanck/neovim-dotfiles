@@ -265,6 +265,10 @@ set timeoutlen=300
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
+" Run rubocop on current file
+nmap <Leader>= :!bundle exec rubocop -a %
+nmap <Leader>rR :!bundle exec rubocop -a
+
 " Undotree
 
 nmap <Leader>u :UndotreeToggle <CR>
