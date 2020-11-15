@@ -14,6 +14,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'ryanoasis/vim-devicons'
   Plug 'airblade/vim-gitgutter'
   Plug 'mhinz/vim-startify'
+  Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
   
   " Airline for the tabs
   Plug 'vim-airline/vim-airline'
@@ -134,17 +135,6 @@ let g:airline#extensions#tabline#fnametruncate = 16
 let g:airline#extensions#tabline#fnamecollapse = 2
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
-" Change tabs with , + 1...9
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-
 " Change tabs with ALT + 1...9
 nmap <M-1> <Plug>AirlineSelectTab1
 nmap <M-2> <Plug>AirlineSelectTab2
@@ -162,6 +152,7 @@ nmap <leader>k :bd! <CR>
 nmap <leader>, :Buffers <CR>
 nmap <C-,> :bp <CR>
 nmap <C-;> :bn <CR>
+nmap - $
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 imap <C-BS> <C-W>
@@ -210,8 +201,8 @@ nmap <silent> <Leader>tr :TestLast<CR>
 nmap <silent> <Leader>tR :TestVisit<CR>
 
 " Sneak mode
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
 
 source ~/.config/nvim/coc.vim
 
@@ -219,6 +210,8 @@ source ~/.config/nvim/coc.vim
 nmap <Leader>gg :G <CR>
 nmap <Leader>gm :diffget //2 <CR>
 nmap <Leader>go :diffget //3 <CR>
+nmap <Leader>gr :GitGutterUndoHunk <CR>
+nmap <Leader>gv :GitGutterPreviewHunk <CR>
 nnoremap <Leader>gc :GBranches <CR>
 
 nmap ]g :GitGutterNextHunk <CR>
@@ -234,3 +227,24 @@ set autoread
 au CursorHold * checktime
 
 let g:startify_change_to_vcs_root = 1
+
+" Jumps to cursor last position
+" Only do this part when compiled with support for autocommands
+ if has("autocmd")
+   augroup redhat
+     autocmd!
+       " When editing a file, always jump to the last cursor position
+         autocmd BufReadPost *
+           \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal! g'\"" |
+  \ endif
+  augroup END
+endif
+
+" Whichkey
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+set timeoutlen=300
+
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
