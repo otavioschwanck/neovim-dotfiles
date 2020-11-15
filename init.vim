@@ -50,6 +50,9 @@ call plug#begin("~/.vim/plugged")
   " Misc
   Plug 'xianzhon/vim-code-runner'
   Plug 'sheerun/vim-polyglot'
+  Plug 'honza/vim-snippets'
+  Plug 'mbbill/undotree'
+
 
   let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-tabnine', 'coc-solargraph', 'coc-yank', 'coc-snippets']
 call plug#end()
@@ -248,3 +251,7 @@ set timeoutlen=300
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
+
+" Undotree
+
+nmap <Leader>u :UndotreeToggle <CR>
