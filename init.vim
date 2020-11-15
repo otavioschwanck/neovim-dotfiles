@@ -1,3 +1,5 @@
+set nocompatible
+
 call plug#begin("~/.vim/plugged")
   " Themes
   Plug 'dracula/vim'
@@ -46,6 +48,7 @@ call plug#begin("~/.vim/plugged")
 
   " Misc
   Plug 'xianzhon/vim-code-runner'
+  Plug 'sheerun/vim-polyglot'
 
   let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-tabnine', 'coc-solargraph', 'coc-yank', 'coc-snippets']
 call plug#end()
@@ -206,6 +209,10 @@ nmap <silent> <Leader>ta :TestSuite<CR>
 nmap <silent> <Leader>tr :TestLast<CR>
 nmap <silent> <Leader>tR :TestVisit<CR>
 
+" Sneak mode
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+
 source ~/.config/nvim/coc.vim
 
 " Git
@@ -213,6 +220,9 @@ nmap <Leader>gg :G <CR>
 nmap <Leader>gm :diffget //2 <CR>
 nmap <Leader>go :diffget //3 <CR>
 nnoremap <Leader>gc :GBranches <CR>
+
+nmap ]g :GitGutterNextHunk <CR>
+nmap [g :GitGutterPrevHunk <CR>
 
 let test#strategy = "neovim"
 
