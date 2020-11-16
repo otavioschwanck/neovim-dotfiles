@@ -225,8 +225,8 @@ source ~/.config/nvim/rails_projections.vim
 
 " Git
 nmap <Leader>gg :G <CR>
-nmap <Leader>gm :diffget //2 <CR>
-nmap <Leader>go :diffget //3 <CR>
+nmap <Leader>gf :diffget //2 <CR>
+nmap <Leader>gj :diffget //3 <CR>
 nmap <Leader>gr :GitGutterUndoHunk <CR>
 nmap <Leader>gv :GitGutterPreviewHunk <CR>
 nnoremap <Leader>gc :GBranches <CR>
