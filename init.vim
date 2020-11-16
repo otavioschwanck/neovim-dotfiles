@@ -63,6 +63,7 @@ call plug#end()
 let mapleader = " "
 
 " Some nice configs
+set number!
 set relativenumber!
 set ic
 
@@ -269,8 +270,10 @@ nmap <Leader>= :!bundle exec rubocop -a %
 nmap <Leader>rR :!bundle exec rubocop -a
 
 " Undotree
-
 nmap <Leader>u :UndotreeToggle <CR>
+
+" Project Search with Ag
+nmap <Leader>sp :Ag 
 
 " Peekaboo
 let g:peekaboo_window = 'vert bot 60new'
