@@ -64,9 +64,10 @@ call plug#end()
 let mapleader = " "
 
 " Some nice configs
-set number!
-set relativenumber!
+set number
+set relativenumber
 set ic
+set colorcolumn=125
 
 " Opening Private Configs
 nnoremap <silent> <leader>fp :e ~/.config/nvim/init.vim <cr>
@@ -94,6 +95,7 @@ let g:NERDTreeStatusline = ''
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader>E :NERDTreeFind<CR>
 
 " open new split panes to right and below
 set splitright
@@ -263,7 +265,7 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 set timeoutlen=300
 
 " Clear highlighting on escape in normal mode
-nnoremap <esc> :noh<return><esc>
+nnoremap <silent><esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
 " Run rubocop on current file
