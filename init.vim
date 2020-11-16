@@ -205,7 +205,7 @@ nmap <leader>r@ :Emailer
 nmap <leader>rn :Emigration 
 nmap <leader>rm :Emodel 
 nmap <leader>ra :Eadmin
-nmap <leader>ra :Ecell
+nmap <leader>re :Ecell
 nmap <leader>rs :Eschema 
 nmap <leader>rt :Espec  
 nmap <leader>ry :Estylesheet 
