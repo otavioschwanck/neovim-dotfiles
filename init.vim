@@ -276,7 +276,7 @@ nmap <Leader>u :UndotreeToggle <CR>
 
 " Project Search with Ag
 nmap <Leader>sp :Ag 
-nmap <Leader>sP :CocSearch
+nmap <Leader>sP :CocSearch 
 
 " Peekaboo
 let g:peekaboo_window = 'vert bot 60new'
