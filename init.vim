@@ -58,6 +58,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'honza/vim-snippets'
   Plug 'mbbill/undotree'
   Plug 'junegunn/vim-peekaboo'
+  Plug 'MattesGroeger/vim-bookmarks'
 
   let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-tabnine', 'coc-solargraph', 'coc-yank', 'coc-snippets']
 call plug#end()
@@ -85,8 +86,6 @@ if (has("termguicolors"))
 endif
 syntax enable
 colorscheme onedark
-let g:gruvbox_invert_selection='0'
-let g:gruvbox_contrast_dark='hard'
 set background=dark
 
 " Nerdtree
@@ -137,7 +136,7 @@ let g:fzf_action = {
   \}
 
 let $FZF_DEFAULT_OPTS='--reverse'
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden'
 
 " Change tabs with alt
 " Airline
@@ -233,6 +232,8 @@ nmap <Leader>gf :diffget //2 <CR>
 nmap <Leader>gj :diffget //3 <CR>
 nmap <Leader>gr :GitGutterUndoHunk <CR>
 nmap <Leader>gv :GitGutterPreviewHunk <CR>
+nmap <Leader>gl :0Glog <CR>
+nmap <Leader>gL :Glog <CR>
 nnoremap <Leader>gc :GBranches <CR>
 
 nmap ]g :GitGutterNextHunk <CR>
@@ -290,3 +291,11 @@ endif
 
 " Project Commands
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
+" Bookmarks
+
+nmap <Leader>bt <Plug>BookmarkToggle
+nmap <Leader>bA <Plug>BookmarkAnnotate
+nmap <Leader>ba <Plug>BookmarkShowAll
+nmap ]b <Plug>BookmarkNext
+nmap [b <Plug>BookmarkPrev

@@ -9,6 +9,12 @@ let g:rails_projections = {
 \   "related": "app/models/%s.rb",
 \   "template": "class %S\n\n  def run\n  end\nend"
 \ },
+\ "app/business/*.rb": {
+\   "command": "business",
+\   "affinity": "model",
+\   "test": "spec/business/%s_spec.rb",
+\   "template": "class %S < ApplicationBusiness\n\n  def run\n  end\nend"
+\ },
 \ "app/admin/*.rb": {
 \   "command": "admin",
 \   "affinity": "model",
