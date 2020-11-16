@@ -3,7 +3,7 @@ set nocompatible
 call plug#begin("~/.vim/plugged")
   " Themes
   Plug 'dracula/vim'
-  Plug 'gruvbox-community/gruvbox'
+  Plug 'morhetz/gruvbox'
 
   " Nerdtree
   Plug 'scrooloose/nerdtree'
@@ -79,6 +79,8 @@ if (has("termguicolors"))
 endif
 syntax enable
 colorscheme gruvbox
+let g:gruvbox_invert_selection='0'
+let g:gruvbox_contrast_dark='hard'
 set background=dark
 
 " Nerdtree
@@ -274,6 +276,10 @@ nmap <Leader>u :UndotreeToggle <CR>
 
 " Project Search with Ag
 nmap <Leader>sp :Ag 
+nmap <Leader>sP :CocSearch
 
 " Peekaboo
 let g:peekaboo_window = 'vert bot 60new'
+
+" Project Commands
+nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
