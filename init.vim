@@ -39,6 +39,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-bundler'
+  Plug 'kremso/vim-spectator'
 
   " Search And Essentials
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -156,7 +157,8 @@ nmap <M-8> <Plug>AirlineSelectTab8
 nmap <M-9> <Plug>AirlineSelectTab9
  
 " " Editor ney keybindings
-nmap ç :wall! <CR>
+nmap Ç :wall! <CR>
+nmap ç :w! <CR>
 nmap <leader>k :bd! <CR>
 nmap <leader>, :Buffers <CR>
 nmap <C-,> :bp <CR>
@@ -198,6 +200,8 @@ nmap <leader>rl :Elocale
 nmap <leader>r@ :Emailer 
 nmap <leader>rn :Emigration 
 nmap <leader>rm :Emodel 
+nmap <leader>ra :Eadmin
+nmap <leader>ra :Ecell
 nmap <leader>rs :Eschema 
 nmap <leader>rt :Espec  
 nmap <leader>ry :Estylesheet 
@@ -223,6 +227,7 @@ map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
 source ~/.config/nvim/coc.vim
+source ~/.config/nvim/rails_projections.vim
 
 " Git
 nmap <Leader>gg :G <CR>
@@ -268,8 +273,8 @@ nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
 " Run rubocop on current file
-nmap <Leader>= :!bundle exec rubocop -a %
-nmap <Leader>rR :!bundle exec rubocop -a
+nmap <Leader>= :!bundle exec rubocop -a % <CR>
+nmap <Leader>rR :!bundle exec rubocop -a <CR>
 
 " Undotree
 nmap <Leader>u :UndotreeToggle <CR>
