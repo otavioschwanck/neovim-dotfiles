@@ -4,7 +4,7 @@ This project is WIP
 
 ```
 sudo apt install silversearcher-ag nodejs npm neovim neovim-qt xclip python3-pip ripgrep
-gem install solargraph
+gem install solargraph neovim
 pip3 install --user pynvim
 git clone https://github.com/otavioschwanck/neovim-dotfiles.git ~/.config/nvim/
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
