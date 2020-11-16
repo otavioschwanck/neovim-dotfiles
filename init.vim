@@ -208,12 +208,6 @@ nmap <leader>ry :Estylesheet
 nmap <leader>rk :Etask 
 nmap <leader>rv :Eview 
 
-" RSpec.vim mappings
-map <Leader>tv :call OpenTerminal() :T bundle exec rspec % <CR>
-map <Leader>ts :call RunNearestSpec()<CR>
-map <Leader>tr :call RunLastSpec()<CR>
-map <Leader>ta :call RunAllSpecs()<CR>
-
 nmap <silent> <Leader>ts :TestNearest<CR>
 nmap <silent> <Leader>tv :TestFile<CR>
 nmap <silent> <Leader>ta :TestSuite<CR>
