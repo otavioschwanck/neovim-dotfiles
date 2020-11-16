@@ -4,6 +4,7 @@ call plug#begin("~/.vim/plugged")
   " Themes
   Plug 'dracula/vim'
   Plug 'morhetz/gruvbox'
+  Plug 'joshdick/onedark.vim'
 
   " Nerdtree
   Plug 'scrooloose/nerdtree'
@@ -83,7 +84,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 syntax enable
-colorscheme gruvbox
+colorscheme onedark
 let g:gruvbox_invert_selection='0'
 let g:gruvbox_contrast_dark='hard'
 set background=dark
@@ -135,15 +136,13 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
-
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Change tabs with alt
 " Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='onedark'
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnametruncate = 16
@@ -284,6 +283,10 @@ nmap <Leader>sP :CocSearch
 
 " Peekaboo
 let g:peekaboo_window = 'vert bot 60new'
+
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " Project Commands
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
