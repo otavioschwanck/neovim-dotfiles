@@ -41,6 +41,9 @@ call plug#begin("~/.vim/plugged")
   Plug 'tpope/vim-bundler'
   Plug 'kremso/vim-spectator'
 
+  " Web
+  Plug 'mattn/emmet-vim'
+
   " Search And Essentials
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
