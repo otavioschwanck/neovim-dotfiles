@@ -1,8 +1,15 @@
+# For who is this file
+
+For vim users who whants to develop in Ruby and Javascript.
+
 # Installation
+
+In this section, i'll coverate the installation process.
 
 ## Requirements
 - Nodejs
 - Ag
+- ripgrep
 - npm
 - ruby
 - solargraph
@@ -23,6 +30,8 @@ nvim-qt +PlugInstall
 ```
 
 # Troubleshoot
+
+In this section i'll coverate the common errors and how to solve.
 
 ## the icons are ugly
 
