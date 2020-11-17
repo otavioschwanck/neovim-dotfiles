@@ -1,4 +1,4 @@
-# For who is this file
+# For who is this dotfiles?
 
 For vim users who whants to develop in Ruby and Javascript.
 
