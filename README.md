@@ -1,4 +1,16 @@
-# Installation (Ubuntu)
+# Installation
+
+## Requirements
+- Nodejs
+- Ag
+- npm
+- ruby
+- solargraph
+- neovim
+- neovim-qt (optional)
+- python3-pip
+
+### Ubuntu
 
 ```
 sudo apt install silversearcher-ag nodejs npm neovim neovim-qt xclip python3-pip ripgrep
