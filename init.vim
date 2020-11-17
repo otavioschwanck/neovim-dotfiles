@@ -73,6 +73,8 @@ set number
 set relativenumber
 set ic
 set colorcolumn=125
+set encoding=UTF-8
+autocmd FileType nerdtree setlocal nolist
 
 " Opening Private Configs
 nnoremap <silent> <leader>fp :e ~/.config/nvim/init.vim <cr>
@@ -136,7 +138,7 @@ let g:fzf_action = {
   \}
 
 let $FZF_DEFAULT_OPTS='--reverse'
-let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden'
+let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden --ignore .git'
 
 " Change tabs with alt
 " Airline
