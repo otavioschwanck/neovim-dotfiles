@@ -13,6 +13,7 @@ nvim-qt +PlugInstall
 ```
 
 * Troubleshoot
+
 ** Icon fonts are ugly
 
 Just go to `~/.config/share/fonts` are install NerdIcon fonts with:
